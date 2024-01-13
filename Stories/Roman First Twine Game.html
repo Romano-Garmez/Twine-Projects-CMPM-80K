@@ -12,7 +12,8 @@
 <tw-storydata name="Roman First Twine Game" startnode="1" creator="Twine" creator-version="2.8.1" format="Harlowe" format-version="3.3.8" ifid="C73A7103-272A-44D8-96AF-0312F1CB2F30" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Starting Passage" tags="" position="625,325" size="100,100">You&#39;ve arrived at &#39;&#39;UC Santa Cruz&#39;&#39;. You&#39;ve just finished unpacking into your dorm in &#39;&#39;Crown&#39;&#39;, and are looking for something to do. It&#39;s welcome week, so you&#39;ve got plenty of time to explore the new-to-you campus. Where do you want to go first?
 
 [[Bus Stop]]
-[[Dining Hall]] </tw-passagedata><tw-passagedata pid="2" name="Bus Stop" tags="" position="800,275" size="100,100">You&#39;ve made your way to the nearest bus stop. You can take one of the loop buses and go clockwise around campus, or another one of the loop buses and go counter-clockwise.
+[[Dining Hall]] 
+[[The Forest]] </tw-passagedata><tw-passagedata pid="2" name="Bus Stop" tags="" position="800,275" size="100,100">You&#39;ve made your way to the nearest bus stop. You can take one of the loop buses and go clockwise around campus, or another one of the loop buses and go counter-clockwise.
 
 [[Clockwise Bus]]
 [[Counter-Clockwise Bus]] 
@@ -109,7 +110,8 @@ You&#39;re riding along counter-clockwise to the next stop. Click &quot;next sto
 You&#39;re back at your dorm, ready to go somewhere else whenever.
 
 [[Bus Stop]] 
-[[Dining Hall]] </tw-passagedata><tw-passagedata pid="11" name="Botanic Garden" tags="" position="1250,50" size="100,100">You&#39;ve arrived at the botanic garden on campus. It&#39;s very pleasant to walk through, plenty of unique looking plants. It&#39;s not very busy, there&#39;s maybe one or two other people there.
+[[Dining Hall]] 
+[[The Forest]] </tw-passagedata><tw-passagedata pid="11" name="Botanic Garden" tags="" position="1250,50" size="100,100">You&#39;ve arrived at the botanic garden on campus. It&#39;s very pleasant to walk through, plenty of unique looking plants. It&#39;s not very busy, there&#39;s maybe one or two other people there.
 
 Do you wish to [examine one of the plants?]&lt;s| (click: ?s)[
 
@@ -127,9 +129,20 @@ It&#39;s a succulent, like one of the ones you picked up during that welcome wee
 [[Clockwise: Next Stop]] 
 [[Counter-Clockwise: Next Stop]] </tw-passagedata><tw-passagedata pid="15" name="Dining Hall" tags="" position="800,425" size="100,100">You scan in and stay for a meal. They&#39;re serving indian food. It&#39;s reasonably good, you&#39;ve heard such horror stories about college dining halls that you&#39;re pleasantly surprised by the food available.
 
-[[Bus Stop]] 
 [[Back to Dorm]] 
-</tw-passagedata></tw-storydata>
+
+[[Bus Stop]] 
+[[The Forest]] 
+</tw-passagedata><tw-passagedata pid="16" name="The Forest" tags="" position="650,525" size="100,100">You make your way away from the dorm into the forest. You make your way down a trail, and suddenly you&#39;re met at a crossroads. Which way would you like to go?
+
+[[Back to Dorm]] 
+
+[[Left Path]]
+[[Right Path]]</tw-passagedata><tw-passagedata pid="17" name="Left Path" tags="" position="550,675" size="100,100">You follow along the trail until you encounter the painted barrels. There&#39;s some cool murals on them. 
+
+[[The Forest]] </tw-passagedata><tw-passagedata pid="18" name="Right Path" tags="" position="800,675" size="100,100">You walk along a lot further and get to the koi pond. It&#39;s fun to see the fish swimming about. 
+
+[[The Forest]] </tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
