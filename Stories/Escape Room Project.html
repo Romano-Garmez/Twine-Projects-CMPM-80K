@@ -9,13 +9,273 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Escape Room Project.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Escape Room Project" startnode="1" creator="Twine" creator-version="2.8.1" format="Harlowe" format-version="3.3.8" ifid="142E6DF6-75F2-4BC5-824E-A7675E8BFA10" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Starting Passage" tags="" position="625,325" size="100,100">example text
+<tw-storydata name="Escape Room Project" startnode="1" creator="Twine" creator-version="2.8.1" format="Harlowe" format-version="3.3.8" ifid="142E6DF6-75F2-4BC5-824E-A7675E8BFA10" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Starting Passage" tags="" position="600,300" size="100,100">{
+(set: $inventory to (array:))
+}
+
+
+You wake up in a dimly lit room. The walls are entirely without decoration, and there are no windows. There is a door, but it&#39;s locked. The keyhole is visible, but you check your pockets and you don&#39;t have a key.
+
+In the middle of the room, there is a small table with a complicated-looking metal safe on top.
+
+By one of the walls, there&#39;s a wooden desk with a drawer and a note on top.
+
+Search:
+[[Metal Safe]]
+[[Wooden Desk]]
+
+
+
 
 assignment
 https://canvas.ucsc.edu/groups/85508/discussion_topics/549228
 
 feedback
-https://canvas.ucsc.edu/groups/85508/discussion_topics/546205 </tw-passagedata></tw-storydata>
+https://canvas.ucsc.edu/groups/85508/discussion_topics/546205 
+
+twine tutorial
+https://docs.google.com/document/d/1ut-_wy5DIBFVo46aPKKY7WTcvNuLfnYhU9wfWnCUvbE/edit#heading=h.4pxtbg23wcva
+
+riddles
+https://www.rd.com/list/easy-riddles/</tw-passagedata><tw-passagedata pid="2" name="Metal Safe" tags="" position="800,500" size="100,100">The metal safe is illuminated by one light in the center of the room. There&#39;s a combination lock on front, but you don&#39;t know the code. Maybe there are clues around?
+
+The combination lock is also covered up with a metal plate and lock.
+There&#39;s a metal label on one side with the name of the company that created the safe.
+
+Inspect:
+[[Combination Lock Cover]]
+
+{
+(if: $combiLockUncovered is true)[
+[[Combination]] 
+]
+(else:)[
+[[Metal Label]]
+]
+}
+
+
+Back:
+[[Center of the Room]] 
+
+(display:&quot;Inventory&quot;)</tw-passagedata><tw-passagedata pid="3" name="Wooden Desk" tags="" position="1200,500" size="100,100">You walk over to the wooden desk. 
+
+There&#39;s a drawer with a keyhole on the desk.
+There&#39;s an envelope placed on top.
+There&#39;s a small locked chest placed on top as well. It looks quite old.
+
+Inspect:
+[[Drawer]]
+[[Envelope]]
+[[Small Chest]]
+
+Back:
+[[Center of the Room]] 
+
+(display:&quot;Inventory&quot;)</tw-passagedata><tw-passagedata pid="4" name="Drawer" tags="" position="1200,700" size="100,100">The drawer is locked. Perhaps if you had the correct key you would be able to open it?
+
+{
+(if: $inventory contains &quot;Old Key&quot;)[
+You have Old Key, but it looks like it won&#39;t fit in this lock.
+]
+
+(if: $inventory contains &quot;New Key&quot;)[
+[[Open Drawer]]
+]
+}
+
+Back:
+[[Wooden Desk]] </tw-passagedata><tw-passagedata pid="5" name="Envelope" tags="" position="1400,700" size="100,100">{
+(if: $inventory does not contain &quot;Old Key&quot;)[
+(set: $inventory to it + (a: &quot;Old Key&quot;))
+]
+}
+
+The envelope contains a message and a small metal key:
+
+&quot;You&#39;ve shown true expertise with our puzzles before. We expect nothing but the same this time. Have a key to begin your journey.&quot;
+
+Back:
+[[Wooden Desk]] 
+
+(if: $inventory  contains &quot;Black Light&quot;)[
+(link: &quot;Use Black Light&quot;)[There&#39;s another bit of writing on the paper revealed with the black light. It says the number &quot;1&quot;.]
+]</tw-passagedata><tw-passagedata pid="6" name="Open Drawer" tags="" position="1200,900" size="100,100">{
+(if: $inventory does not contain &quot;Pry Tool&quot;)[
+(set: $inventory to it + (a: &quot;Pry Tool&quot;))
+]
+(if: $inventory does not contain &quot;Black Light&quot;)[
+(set: $inventory to it + (a: &quot;Black Light&quot;))
+]
+}
+
+Inside the drawer is a small collection of items.
+There&#39;s a small metal blade that could be used to pry something open. There&#39;s also a handheld black light. It might be able to be used to reveal hidden messages somewhere.
+
+Back:
+[[Wooden Desk]] </tw-passagedata><tw-passagedata pid="7" name="Ending" tags="" position="1600,500" size="100,100">Success</tw-passagedata><tw-passagedata pid="8" name="Center of the Room" tags="" position="600,400" size="100,100">There is a door, but it&#39;s locked. The keyhole is visible, but you check your pockets and you don&#39;t have a key.
+
+In the middle of the room, there is a small table with a complicated-looking metal safe on top.
+
+By one of the walls, there&#39;s a wooden desk with a drawer and a note on top.
+
+Search:
+[[Metal Safe]]
+[[Wooden Desk]]
+
+(display:&quot;Inventory&quot;)</tw-passagedata><tw-passagedata pid="9" name="Small Chest" tags="" position="1600,700" size="100,100">The chest is locked. Perhaps if you had the correct key you would be able to open it?
+
+{
+(if: $inventory contains &quot;Old Key&quot;)[
+[[Open Chest]]
+]
+}
+
+Back:
+[[Wooden Desk]] </tw-passagedata><tw-passagedata pid="10" name="Inventory" tags="" position="600,100" size="100,100">
+
+-------------------------------------
+**Inventory:**
+(for: each _item, ...$inventory)[
+[- _item&lt;br&gt;]
+]
+
+[[Inspect Items in Inventory]]</tw-passagedata><tw-passagedata pid="11" name="Open Chest" tags="" position="1600,900" size="100,100">The chest contains another handwritten message, this time a riddle. 
+
+&quot;What has a head and a tail, but no body?&quot;
+
+The chest contains an assortment of small items and trinkets.
+
+Inspect:
+[[Thumbtack]]
+[[Screw]]
+[[Paperclip]]
+[[Knight from a chess game]]
+[[Coin]]
+
+Back:
+[[Small Chest]] </tw-passagedata><tw-passagedata pid="12" name="Thumbtack" tags="" position="1600,1025" size="100,100">You inspect the thumbtack. Try not to poke yourself with the sharp bit.
+
+[[Place Back in Chest|Incorrect Chest Item]]</tw-passagedata><tw-passagedata pid="13" name="Screw" tags="" position="1725,1025" size="100,100">You inspect the screw. Doesn&#39;t look important.
+
+[[Place Back in Chest|Incorrect Chest Item]]</tw-passagedata><tw-passagedata pid="14" name="Paperclip" tags="" position="1475,1025" size="100,100">You inspect the paperclip. Looks ordinary enough.
+
+[[Place Back in Chest|Incorrect Chest Item]]</tw-passagedata><tw-passagedata pid="15" name="Knight from a chess game" tags="" position="1550,1150" size="100,100">You inspect the knight. Wonder where the rest of the chess game is.
+
+[[Place Back in Chest|Incorrect Chest Item]]</tw-passagedata><tw-passagedata pid="16" name="Coin" tags="" position="1675,1150" size="100,100">You inspect the coin. Abraham Lincoln stares back at you.
+
+[[Place Back in Chest|Correct Chest Item]]</tw-passagedata><tw-passagedata pid="17" name="Incorrect Chest Item" tags="" position="1500,1300" size="100,100">The chest slams shut and locks itself again. That must&#39;ve been the incorrect answer.
+
+[[Wooden Desk]] </tw-passagedata><tw-passagedata pid="18" name="Correct Chest Item" tags="" position="1700,1300" size="100,100">{
+(if: $inventory does not contain &quot;Screwdriver&quot;)[
+(set: $inventory to it + (a: &quot;Screwdriver&quot;))
+]
+}
+
+The chest begins whirring, gears inside spinning. A new compartment appears with a small screwdriver inside. It&#39;s a strange shape, maybe a torx bit?
+
+[[Wooden Desk]] </tw-passagedata><tw-passagedata pid="19" name="Metal Label" tags="" position="700,700" size="100,100">The metal label has a company&#39;s name that you&#39;ve never heard of before. The label is screwed into the safe with 2 torx screws.
+
+{
+(if: $inventory contains &quot;Screwdriver&quot;)[
+[[Remove Metal Label]]
+]
+}
+
+Back:
+[[Metal Safe]] </tw-passagedata><tw-passagedata pid="20" name="Combination" tags="" position="900,900" size="100,100">The combination is made up of three spinning discs, each one going from 0 to 10. Not the most secure safe of all time, but that&#39;s still well over a thousand combinations. Too many to try them all.
+
+[[Try Combination|First Disc]]
+
+Back:
+[[Metal Safe]] </tw-passagedata><tw-passagedata pid="21" name="Remove Metal Label" tags="" position="700,900" size="100,100">{
+(if: $inventory does not contain &quot;New Key&quot;)[
+(set: $inventory to it + (a: &quot;New Key&quot;))
+]
+}
+
+You unscrew the two screws holding the label in place. The label falls to the ground.
+
+A key falls out.
+Behind the label is a number carved into safe. 
+**7**
+
+Back:
+[[Metal Safe]] </tw-passagedata><tw-passagedata pid="22" name="First Disc" tags="" position="500,600" size="100,100">{
+(set:$combination1 to 0)
+(set:$combination2 to 0)
+(set:$combination3 to 0)
+}
+
+What do you dial in as the first number?
+
+(link: &quot;0&quot;)[(set: $combination1 to 0)(goto: &quot;Second Disc&quot;)]
+(link: &quot;1&quot;)[(set: $combination1 to 1)(goto: &quot;Second Disc&quot;)]
+(link: &quot;2&quot;)[(set: $combination1 to 2)(goto: &quot;Second Disc&quot;)]
+(link: &quot;3&quot;)[(set: $combination1 to 3)(goto: &quot;Second Disc&quot;)]
+(link: &quot;4&quot;)[(set: $combination1 to 4)(goto: &quot;Second Disc&quot;)]
+(link: &quot;5&quot;)[(set: $combination1 to 5)(goto: &quot;Second Disc&quot;)]
+(link: &quot;6&quot;)[(set: $combination1 to 6)(goto: &quot;Second Disc&quot;)]
+(link: &quot;7&quot;)[(set: $combination1 to 7)(goto: &quot;Second Disc&quot;)]
+(link: &quot;8&quot;)[(set: $combination1 to 8)(goto: &quot;Second Disc&quot;)]
+(link: &quot;9&quot;)[(set: $combination1 to 9)(goto: &quot;Second Disc&quot;)]</tw-passagedata><tw-passagedata pid="23" name="Second Disc" tags="" position="500,800" size="100,100">What do you dial in as the second number?
+
+(link: &quot;0&quot;)[(set: $combination2 to 0)(goto: &quot;Third Disc&quot;)]
+(link: &quot;1&quot;)[(set: $combination2 to 1)(goto: &quot;Third Disc&quot;)]
+(link: &quot;2&quot;)[(set: $combination2 to 2)(goto: &quot;Third Disc&quot;)]
+(link: &quot;3&quot;)[(set: $combination2 to 3)(goto: &quot;Third Disc&quot;)]
+(link: &quot;4&quot;)[(set: $combination2 to 4)(goto: &quot;Third Disc&quot;)]
+(link: &quot;5&quot;)[(set: $combination2 to 5)(goto: &quot;Third Disc&quot;)]
+(link: &quot;6&quot;)[(set: $combination2 to 6)(goto: &quot;Third Disc&quot;)]
+(link: &quot;7&quot;)[(set: $combination2 to 7)(goto: &quot;Third Disc&quot;)]
+(link: &quot;8&quot;)[(set: $combination2 to 8)(goto: &quot;Third Disc&quot;)]
+(link: &quot;9&quot;)[(set: $combination2 to 9)(goto: &quot;Third Disc&quot;)]</tw-passagedata><tw-passagedata pid="24" name="Third Disc" tags="" position="500,1000" size="100,100">What do you dial in as the third number?
+
+(link: &quot;0&quot;)[(set: $combination3 to 0)(goto: &quot;Open Safe&quot;)]
+(link: &quot;1&quot;)[(set: $combination3 to 1)(goto: &quot;Open Safe&quot;)]
+(link: &quot;2&quot;)[(set: $combination3 to 2)(goto: &quot;Open Safe&quot;)]
+(link: &quot;3&quot;)[(set: $combination3 to 3)(goto: &quot;Open Safe&quot;)]
+(link: &quot;4&quot;)[(set: $combination3 to 4)(goto: &quot;Open Safe&quot;)]
+(link: &quot;5&quot;)[(set: $combination3 to 5)(goto: &quot;Open Safe&quot;)]
+(link: &quot;6&quot;)[(set: $combination3 to 6)(goto: &quot;Open Safe&quot;)]
+(link: &quot;7&quot;)[(set: $combination3 to 7)(goto: &quot;Open Safe&quot;)]
+(link: &quot;8&quot;)[(set: $combination3 to 8)(goto: &quot;Open Safe&quot;)]
+(link: &quot;9&quot;)[(set: $combination3 to 9)(goto: &quot;Open Safe&quot;)]</tw-passagedata><tw-passagedata pid="25" name="Open Safe" tags="" position="500,1200" size="100,100">(if: $combination1 is not 7 and $combination2 is not 1 and $combination3 is not 8)[
+The safe doesn&#39;t budge. Wrong combination I suppose.
+
+[[Metal Safe]] 
+]
+(else:)[
+The safe opened!
+
+[[Ending]] 
+]
+</tw-passagedata><tw-passagedata pid="26" name="Combination Lock Cover" tags="" position="900,700" size="100,100">The combination lock itself is blocked off by a metal plate. There&#39;s no visible keyhole, or any way to remove it. You can almost pry it off with your fingernails, but it&#39;s a bit too tightly on.
+
+(if: $inventory contains &quot;Pry Tool&quot;)[
+[[Combination]] 
+]
+
+Back:
+[[Metal Safe]] </tw-passagedata><tw-passagedata pid="27" name="Inspect Items in Inventory" tags="" position="800,100" size="100,100">{
+(if: $inventory contains &quot;Old Key&quot;)[
+Old Key: A very small metal key. It lost some of its shine over the years, and likely goes to an older lock in the room.
+]
+(if: $inventory contains &quot;New Key&quot;)[
+New Key: A medium large metal key. Probably used for something large-ish.
+]
+(if: $inventory contains &quot;Screwdriver&quot;)[
+Screwdriver: A screwdriver with a torx bit. Can&#39;t be used to pry anything open, but if you find something with a torx screw it will be helpful.
+]
+(if: $inventory contains &quot;Pry Tool&quot;)[
+Pry Tool: A small metal piece that can be used to pry something open.
+]
+(if: $inventory contains &quot;Black Light&quot;)[
+Black Light: A handheld light, useful for uncovering hidden messages.
+]
+}
+
+(link-undo: &quot;Go Back&quot;)</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
