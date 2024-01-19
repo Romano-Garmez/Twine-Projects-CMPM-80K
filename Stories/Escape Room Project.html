@@ -30,10 +30,12 @@ Search:
 
 </tw-passagedata><tw-passagedata pid="2" name="Metal Safe" tags="" position="800,500" size="100,100">**Metal Safe**
 
-The metal safe is illuminated by one light in the center of the room. There&#39;s a combination lock on front, but you don&#39;t know the code. Maybe there are clues around?
+The metal safe is illuminated by one light in the center of the room. There&#39;s a tile pattern on top, but otherwise it&#39;s mostly undecorated. There&#39;s a combination lock on front, but you don&#39;t know the code. Maybe there are clues around?
 
-The combination lock is also covered up with a metal plate and lock.
+
 There&#39;s a metal label on one side with the name of the company that created the safe.
+The combination lock is covered up with a metal plate and cannot be turned.
+
 
 ---
 Inspect:
@@ -47,6 +49,14 @@ Inspect:
 [[Metal Label]]
 ]
 }
+(if: $inventory  contains &quot;Black Light&quot;)[
+(link: &quot;Use Black Light&quot;)[One of the tiles on top has a bunch of fingerprints on it.
+If you had a pry tool, maybe you could lift it up
+(if: $inventory contains &quot;Pry Tool&quot;)[
+[[Pry off tile]]
+]
+]
+]
 
 Back:
 [[Center of the Room]] 
@@ -73,13 +83,14 @@ The drawer is locked. Perhaps if you had the correct key you would be able to op
 
 {
 (if: $inventory contains &quot;Old Key&quot;)[
-You have Old Key, but it looks like it won&#39;t fit in this lock.
+You have the Old Key, but it looks like it won&#39;t fit in this lock.
 
 ]
 
 (if: $inventory contains &quot;New Key&quot;)[
-[[Open Drawer]]
+It looks like the New Key might fit in the lock?
 
+[[Open Drawer]]
 ]
 }
 
@@ -100,7 +111,7 @@ Back:
 [[Wooden Desk]] 
 
 (if: $inventory  contains &quot;Black Light&quot;)[
-(link: &quot;Use Black Light&quot;)[There&#39;s another bit of writing on the paper revealed with the black light. It says the number &quot;1&quot;.]
+(link: &quot;Use Black Light&quot;)[There&#39;s another bit of writing on the paper revealed with the black light. It says &#39;&#39;&quot;_ 1 _&quot;&#39;&#39;.]
 ]
 </tw-passagedata><tw-passagedata pid="6" name="Open Drawer" tags="" position="1200,900" size="100,100">**Drawer**
 {
@@ -146,7 +157,7 @@ Back:
 [[Wooden Desk]] </tw-passagedata><tw-passagedata pid="10" name="Inventory" tags="" position="600,100" size="100,100">---
 (text-colour:orange)[**Inventory:**
 (for: each _item, ...$inventory)[
-[- _item&lt;br&gt;]
+[- _item]
 ]]
 
 [[Inspect Items in Inventory]]
@@ -229,8 +240,8 @@ Back:
 You unscrew the two screws holding the label in place. The label falls to the ground.
 
 A key falls out.
-Behind the label is a number carved into safe. 
-**7**
+Behind the label is a message carved into the safe. 
+&#39;&#39;&quot;7 _ _&quot;&#39;&#39;
 
 Back:
 [[Metal Safe]] </tw-passagedata><tw-passagedata pid="22" name="First Disc" tags="" position="500,600" size="100,100">{
@@ -324,7 +335,14 @@ twine tutorial
 https://docs.google.com/document/d/1ut-_wy5DIBFVo46aPKKY7WTcvNuLfnYhU9wfWnCUvbE/edit#heading=h.4pxtbg23wcva
 
 riddles
-https://www.rd.com/list/easy-riddles/</tw-passagedata></tw-storydata>
+https://www.rd.com/list/easy-riddles/</tw-passagedata><tw-passagedata pid="29" name="Pry off tile" tags="" position="900,1100" size="100,100">**Remove tile from safe**
+
+Below the tile is a message etched into the safe. It says:
+
+&#39;&#39;&quot;_ _ 8&quot;&#39;&#39;
+
+Back:
+[[Metal Safe]] </tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
