@@ -58,6 +58,7 @@ If you had a pry tool, maybe you could lift it up
 ]
 ]
 
+---
 Back:
 [[Center of the Room]] 
 
@@ -66,15 +67,16 @@ Back:
 You walk over to the wooden desk. There are 2 items on top of the desk, and a drawer.
 
 There&#39;s an envelope placed on top.
-There&#39;s a drawer with a keyhole on the desk.
 There&#39;s a small locked chest placed on top as well. It looks quite old.
+There&#39;s also a drawer with a keyhole on the desk.
 
 ---
 Inspect:
 [[Envelope]]
-[[Drawer]]
 [[Small Chest]]
+[[Drawer]]
 
+---
 Back:
 [[Center of the Room]] 
 (display:&quot;Inventory&quot;)</tw-passagedata><tw-passagedata pid="4" name="Drawer" tags="" position="1300,800" size="100,100">**Drawer**
@@ -82,18 +84,17 @@ Back:
 The drawer is locked. Perhaps if you had the correct key you would be able to open it?
 
 {
-(if: $inventory contains &quot;Old Key&quot;)[
-You have the Old Key, but it looks like it won&#39;t fit in this lock.
-&lt;br&gt;
-]
-
 (if: $inventory contains &quot;New Key&quot;)[
 It looks like the New Key might fit in the lock?
 
 [[Open Drawer]]
 ]
+(else-if: $inventory contains &quot;Old Key&quot;)[
+You have the Old Key, but it looks like it won&#39;t fit in this lock.
+]
 }
 
+---
 Back:
 [[Wooden Desk]] </tw-passagedata><tw-passagedata pid="5" name="Envelope" tags="" position="1500,800" size="100,100">**Envelope**
 {
@@ -103,10 +104,13 @@ Back:
 ]
 }
 
-The envelope contains a message and a small metal key:
+You lift up the envelope and open it. The envelope contains a message and a small metal key:
 
 &quot;You&#39;ve shown true expertise with our puzzles before. We expect nothing but the same this time. Have a key to begin your journey.&quot;
 
+You have no recollection of any puzzles like this before. The key looks like it might be useful though.
+
+---
 Back:
 [[Wooden Desk]] 
 
@@ -128,6 +132,7 @@ Back:
 Inside the drawer is a small collection of items.
 There&#39;s a small metal blade that could be used to pry something open. There&#39;s also a handheld black light. It might be able to be used to reveal hidden messages somewhere.
 
+---
 Back:
 [[Wooden Desk]] </tw-passagedata><tw-passagedata pid="7" name="Ending" tags="Ending" position="200,300" size="100,100">Success you win
 
@@ -139,6 +144,7 @@ In the middle of the room, there is a small table with a complicated-looking met
 
 By one of the walls, there&#39;s a wooden desk with a drawer and a note on top.
 
+---
 Search:
 [[Metal Safe]]
 [[Wooden Desk]]
@@ -154,23 +160,21 @@ It looks like your Old Key could open the chest.
 ]
 }
 
+---
 Back:
 [[Wooden Desk]] </tw-passagedata><tw-passagedata pid="10" name="Inventory" tags="Inventory" position="400,100" size="100,100">---
 (text-colour:orange)[**Inventory:**
+[[Click to Inspect Items In Your Inventory|Inspect Items in Inventory]]
 (for: each _item, ...$inventory)[
 [- _item]
 ]]
-
-(text-colour:orange)[
-[[Inspect Items in Inventory]]
-]
 ---</tw-passagedata><tw-passagedata pid="11" name="Open Chest" tags="" position="1700,1000" size="100,100">**Small Chest**
 
 The chest contains another handwritten message, this time a riddle. 
 
 &quot;What has a head and a tail, but no body?&quot;
 
-The chest contains an assortment of small items and trinkets.
+The chest contains an assortment of small items and trinkets. Presumably one of the items is the correct answer.
 
 ---
 Inspect:
@@ -180,6 +184,7 @@ Inspect:
 [[Knight from a chess game]]
 [[Coin]]
 
+---
 Back:
 [[Small Chest]] </tw-passagedata><tw-passagedata pid="12" name="Thumbtack" tags="" position="1600,1100" size="100,100">**Small Chest**
 
@@ -205,6 +210,7 @@ You inspect the coin. Abraham Lincoln stares back at you.
 
 The chest slams shut and locks itself again. That must&#39;ve been the incorrect answer.
 
+---
 [[Wooden Desk]] </tw-passagedata><tw-passagedata pid="18" name="Correct Chest Item" tags="" position="1800,1300" size="100,100">**Small Chest**
 {
 (if: $inventory does not contain &quot;Screwdriver&quot;)[
@@ -215,6 +221,7 @@ The chest slams shut and locks itself again. That must&#39;ve been the incorrect
 
 The chest begins whirring, gears inside spinning. A new compartment appears with a small screwdriver inside. It&#39;s a strange shape, maybe a torx bit?
 
+---
 [[Wooden Desk]] </tw-passagedata><tw-passagedata pid="19" name="Metal Label" tags="" position="800,800" size="100,100">**Metal Label on Safe**
 
 The metal label has a company&#39;s name that you&#39;ve never heard of before. The label is screwed into the safe with 2 torx screws.
@@ -225,6 +232,7 @@ The metal label has a company&#39;s name that you&#39;ve never heard of before. 
 ]
 }
 
+---
 Back:
 [[Metal Safe]] </tw-passagedata><tw-passagedata pid="20" name="Combination" tags="" position="1000,1000" size="100,100">**Metal Safe Combination**
 
@@ -232,6 +240,7 @@ The combination is made up of three spinning discs, each one going from 0 to 10.
 
 [[Try Combination|First Disc]]
 
+---
 Back:
 [[Metal Safe]] </tw-passagedata><tw-passagedata pid="21" name="Remove Metal Label" tags="" position="800,1000" size="100,100">{
 (if: $inventory does not contain &quot;New Key&quot;)[
@@ -244,8 +253,12 @@ You unscrew the two screws holding the label in place. The label falls to the gr
 
 A key falls out. It&#39;s much larger than the one you acquired earlier. It doesn&#39;t look new, but it&#39;s not as old as the other one you have.
 Behind the label is a message carved into the safe. 
+
 &#39;&#39;&quot;7 _ _&quot;&#39;&#39;
 
+This sounds worth remembering.
+
+---
 Back:
 [[Metal Safe]] </tw-passagedata><tw-passagedata pid="22" name="First Disc" tags="" position="500,600" size="100,100">{
 (set:$combination1 to 0)
@@ -305,12 +318,13 @@ The safe unlocked!
 ]
 </tw-passagedata><tw-passagedata pid="26" name="Combination Lock Cover" tags="" position="1000,800" size="100,100">**Cover on Metal Safe**
 
-The combination lock itself is blocked off by a metal plate. There&#39;s no visible keyhole, or any way to remove it. You can almost pry it off with your fingernails, but it&#39;s a bit too tightly on.
+The combination lock itself is blocked off by a metal plate. There&#39;s no visible keyhole, or any way to remove it. You can almost pry it off with your fingernails, but it&#39;s a bit too tightly on without the use of a tool.
 
 (if: $inventory contains &quot;Pry Tool&quot;)[
 [[Use Pry Tool|Combination]] 
 ]
 
+---
 Back:
 [[Metal Safe]] </tw-passagedata><tw-passagedata pid="27" name="Inspect Items in Inventory" tags="Inventory" position="600,100" size="100,100">{
 (if: $inventory contains &quot;Old Key&quot;)[
@@ -319,7 +333,7 @@ Old Key: A very small metal key. It&#39;s lost some of its shine over the years,
 ]
 
 (if: $inventory contains &quot;New Key&quot;)[
-New Key: A medium large metal key. It&#39;s much newer than the other key.
+New Key: A medium large metal key. It&#39;s much newer than the other key. It likely goes to something larger than the small chest that the other key went to.
 &lt;br&gt;
 ]
 
@@ -334,10 +348,13 @@ Pry Tool: A small metal piece with a flat edge that can be used to pry something
 ]
 
 (if: $inventory contains &quot;Black Light&quot;)[
-Black Light: A handheld light, useful for uncovering hidden messages and seeing fingerprints.
+Black Light: A handheld light, useful for uncovering hidden messages and seeing fingerprints. It might be worth going back to written messages you&#39;ve read before to find extra writing.
 &lt;br&gt;
 ]
 
+(if: $inventory&#39;s length is 0)[
+Your inventory does not contain any items currently.
+]
 }
 
 (link-undo: &quot;Go Back&quot;)</tw-passagedata><tw-passagedata pid="28" name="Links" tags="" position="400,300" size="100,100">assignment
@@ -356,6 +373,7 @@ Below the tile is a message etched into the safe. It says:
 
 &#39;&#39;&quot;_ _ 8&quot;&#39;&#39;
 
+---
 Back:
 [[Metal Safe]] </tw-passagedata><tw-passagedata pid="30" name="Open Safe Door" tags="" position="500,1400" size="100,100">**Safe**
 
