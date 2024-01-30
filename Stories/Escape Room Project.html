@@ -110,7 +110,11 @@ You have the Old Key, but it looks like it won&#39;t fit in this lock.
 
 ---
 Back:
-[[Wooden Desk]] </tw-passagedata><tw-passagedata pid="5" name="Envelope" tags="" position="1500,800" size="100,200">**Envelope**
+[[Wooden Desk]] </tw-passagedata><tw-passagedata pid="5" name="Envelope" tags="Audio" position="1500,800" size="100,200">{
+(track: &#39;envelope&#39;, &#39;playwhenpossible&#39;)
+}
+
+**Envelope**
 {
 (if: $inventory does not contain &quot;Old Key&quot;)[
 (set: $inventory to it + (a: &quot;Old Key&quot;))
@@ -444,7 +448,11 @@ Back:
 You push the safe door open. It&#39;s incredibly heavy. Inside lies a large key, hopefully to the door to the room, and another letter.
 
 ---
-[[Read Letter]]</tw-passagedata><tw-passagedata pid="31" name="Read Letter" tags="" position="300,1200" size="100,100">**Letter**
+[[Read Letter]]</tw-passagedata><tw-passagedata pid="31" name="Read Letter" tags="Audio" position="300,1200" size="100,100">{
+(track: &#39;envelope&#39;, &#39;playwhenpossible&#39;)
+}
+
+**Letter**
 
 The letter contains another handwritten message. It say:
 
@@ -464,7 +472,9 @@ chest-slam: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/mai
 
 pry-tool: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/main/Audio/SFX/pry%20tool.mp3
 
-metal-fall: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/main/Audio/SFX/metal%20falling.mp3</tw-passagedata><tw-passagedata pid="33" name="Begin" tags="" position="600,300" size="100,100">(align:&quot;=&gt;&lt;=&quot;)+(box:&quot;X&quot;)[
+metal-fall: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/main/Audio/SFX/metal%20falling.mp3
+
+envelope: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/main/Audio/SFX/envelope.mp3</tw-passagedata><tw-passagedata pid="33" name="Begin" tags="" position="600,300" size="100,100">(align:&quot;=&gt;&lt;=&quot;)+(box:&quot;X&quot;)[
 
 (text-colour:orange)[&#39;&#39;[[Start The Game |Starting Passage]]&#39;&#39;]
 ]</tw-passagedata></tw-storydata>
