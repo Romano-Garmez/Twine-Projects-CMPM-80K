@@ -443,7 +443,11 @@ Below the tile is a message etched into the safe. It says:
 
 ---
 Back:
-[[Metal Safe]] </tw-passagedata><tw-passagedata pid="30" name="Open Safe Door" tags="" position="500,1200" size="100,100">**Safe**
+[[Metal Safe]] </tw-passagedata><tw-passagedata pid="30" name="Open Safe Door" tags="Audio" position="500,1200" size="100,100">{
+(track: &#39;safe-door&#39;, &#39;playwhenpossible&#39;)
+}
+
+**Safe**
 
 You push the safe door open. It&#39;s incredibly heavy. Inside lies a large key, hopefully to the door to the room, and another letter.
 
@@ -474,7 +478,9 @@ pry-tool: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/main/
 
 metal-fall: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/main/Audio/SFX/metal%20falling.mp3
 
-envelope: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/main/Audio/SFX/envelope.mp3</tw-passagedata><tw-passagedata pid="33" name="Begin" tags="" position="600,300" size="100,100">(align:&quot;=&gt;&lt;=&quot;)+(box:&quot;X&quot;)[
+envelope: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/main/Audio/SFX/envelope.mp3
+
+safe-door: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/main/Audio/SFX/safedoor.mp3</tw-passagedata><tw-passagedata pid="33" name="Begin" tags="" position="600,300" size="100,100">(align:&quot;=&gt;&lt;=&quot;)+(box:&quot;X&quot;)[
 
 (text-colour:orange)[&#39;&#39;[[Start The Game |Starting Passage]]&#39;&#39;]
 ]</tw-passagedata></tw-storydata>
