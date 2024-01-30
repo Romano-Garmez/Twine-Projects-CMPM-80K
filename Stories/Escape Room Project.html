@@ -24,7 +24,7 @@
 /** End of HAL code */</script><tw-tag name="Ending" color="red"></tw-tag><tw-tag name="Start" color="green"></tw-tag><tw-tag name="Inventory" color="orange"></tw-tag><tw-tag name="Safe" color="blue"></tw-tag><tw-tag name="Main-Area" color="purple"></tw-tag><tw-tag name="Audio" color="yellow"></tw-tag><tw-passagedata pid="1" name="Starting Passage" tags="Start" position="600,300" size="100,100">{
 (set: $inventory to (array:))
 
-(track: &#39;music-hourglass&#39;, &#39;loop&#39;, true)
+(track: &#39;music-hourglass&#39;, &#39;playwhenpossible&#39;, &#39;loop&#39;, true)
 }
 
 
@@ -400,7 +400,7 @@ The letter contains another handwritten message. It say:
 
 &quot;Impressive work getting here. I leave you a key to the room, but know that it doesn&#39;t end here. I&#39;ll be in touch.&quot;
 
-[[Exit the Room|Ending]]</tw-passagedata><tw-passagedata pid="32" name="hal.tracks" tags="Audio" position="200,100" size="100,100">music-hourglass: ./audio/music/hourglass.mp3</tw-passagedata></tw-storydata>
+[[Exit the Room|Ending]]</tw-passagedata><tw-passagedata pid="32" name="hal.tracks" tags="Audio" position="200,100" size="100,100">music-hourglass: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/1743d356fdbf475331850c33b1c712ed475fa010/Audio/Music/Hourglass.mp3</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
