@@ -131,7 +131,7 @@ Back:
 (if: $inventory  contains &quot;Black Light&quot;)[
 (link: &quot;Use Black Light&quot;)[There&#39;s another bit of writing on the paper revealed with the black light. It says &#39;&#39;&quot;_ 1 _&quot;&#39;&#39;.]
 ]
-</tw-passagedata><tw-passagedata pid="6" name="Open Drawer" tags="" position="1300,1000" size="100,100">{
+</tw-passagedata><tw-passagedata pid="6" name="Open Drawer" tags="Audio" position="1300,1000" size="100,100">{
 (track: &#39;metal-lock-1&#39;, &#39;playwhenpossible&#39;)
 (track: &#39;open-drawer&#39;, &#39;playwhenpossible&#39;)
 }
@@ -187,7 +187,7 @@ Back:
 (for: each _item, ...$inventory)[
 [- _item]
 ]]
----</tw-passagedata><tw-passagedata pid="11" name="Open Chest" tags="" position="1700,1000" size="100,100">{
+---</tw-passagedata><tw-passagedata pid="11" name="Open Chest" tags="Audio" position="1700,1000" size="100,100">{
 (track: &#39;open-chest&#39;, &#39;playwhenpossible&#39;)
 }
 
@@ -229,7 +229,7 @@ You inspect the knight. Wonder where the rest of the chess game is.
 
 You inspect the coin. Abraham Lincoln stares back at you.
 
-[[Place Back in Chest|Correct Chest Item]]</tw-passagedata><tw-passagedata pid="17" name="Incorrect Chest Item" tags="" position="1600,1300" size="100,100">{
+[[Place Back in Chest|Correct Chest Item]]</tw-passagedata><tw-passagedata pid="17" name="Incorrect Chest Item" tags="Audio" position="1600,1300" size="100,100">{
 (track: &#39;chest-slam&#39;, &#39;playwhenpossible&#39;)
 }
 
@@ -238,7 +238,7 @@ You inspect the coin. Abraham Lincoln stares back at you.
 The chest slams shut and locks itself again. That must&#39;ve been the incorrect answer.
 
 ---
-[[Wooden Desk]] </tw-passagedata><tw-passagedata pid="18" name="Correct Chest Item" tags="" position="1800,1300" size="100,100">{
+[[Wooden Desk]] </tw-passagedata><tw-passagedata pid="18" name="Correct Chest Item" tags="Audio" position="1800,1300" size="100,100">{
 (track: &#39;chest-slam&#39;, &#39;playwhenpossible&#39;)
 }
 
@@ -265,7 +265,7 @@ The metal label has a company&#39;s name that you&#39;ve never heard of before. 
 
 ---
 Back:
-[[Metal Safe]] </tw-passagedata><tw-passagedata pid="20" name="Combination" tags="" position="1000,1000" size="100,100">{
+[[Metal Safe]] </tw-passagedata><tw-passagedata pid="20" name="Combination" tags="Audio" position="1000,1000" size="100,100">{
 (track: &#39;pry-tool&#39;, &#39;playwhenpossible&#39;)
 }
 
@@ -277,11 +277,12 @@ The combination is made up of three spinning discs, each one going from 0 to 10.
 
 ---
 Back:
-[[Metal Safe]] </tw-passagedata><tw-passagedata pid="21" name="Remove Metal Label" tags="" position="800,1000" size="100,100">{
+[[Metal Safe]] </tw-passagedata><tw-passagedata pid="21" name="Remove Metal Label" tags="Audio" position="800,1000" size="100,100">{
 (if: $inventory does not contain &quot;New Key&quot;)[
 (set: $inventory to it + (a: &quot;New Key&quot;))
 (text-colour:red)[You&#39;ve acquired an item!]
 ]
+(track: &#39;metal-fall&#39;, &#39;playwhenpossible&#39;)
 }
 
 You unscrew the two screws holding the label in place. The label falls to the ground.
@@ -313,7 +314,7 @@ What do you dial in as the first number?
 (link: &quot;6&quot;)[(set: $combination1 to 6)(goto: &quot;Second Disc&quot;)]
 (link: &quot;7&quot;)[(set: $combination1 to 7)(goto: &quot;Second Disc&quot;)]
 (link: &quot;8&quot;)[(set: $combination1 to 8)(goto: &quot;Second Disc&quot;)]
-(link: &quot;9&quot;)[(set: $combination1 to 9)(goto: &quot;Second Disc&quot;)]</tw-passagedata><tw-passagedata pid="23" name="Second Disc" tags="" position="500,800" size="100,100">{
+(link: &quot;9&quot;)[(set: $combination1 to 9)(goto: &quot;Second Disc&quot;)]</tw-passagedata><tw-passagedata pid="23" name="Second Disc" tags="Audio" position="500,800" size="100,100">{
 (track: &#39;combination-lock&#39;, &#39;playwhenpossible&#39;)
 }
 
@@ -330,7 +331,7 @@ What do you dial in as the second number?
 (link: &quot;6&quot;)[(set: $combination2 to 6)(goto: &quot;Third Disc&quot;)]
 (link: &quot;7&quot;)[(set: $combination2 to 7)(goto: &quot;Third Disc&quot;)]
 (link: &quot;8&quot;)[(set: $combination2 to 8)(goto: &quot;Third Disc&quot;)]
-(link: &quot;9&quot;)[(set: $combination2 to 9)(goto: &quot;Third Disc&quot;)]</tw-passagedata><tw-passagedata pid="24" name="Third Disc" tags="" position="500,1000" size="100,100">{
+(link: &quot;9&quot;)[(set: $combination2 to 9)(goto: &quot;Third Disc&quot;)]</tw-passagedata><tw-passagedata pid="24" name="Third Disc" tags="Audio" position="500,1000" size="100,100">{
 (track: &#39;combination-lock&#39;, &#39;playwhenpossible&#39;)
 }
 
@@ -347,7 +348,7 @@ What do you dial in as the third number?
 (link: &quot;6&quot;)[(set: $combination3 to 6)(goto: &quot;Open Safe&quot;)]
 (link: &quot;7&quot;)[(set: $combination3 to 7)(goto: &quot;Open Safe&quot;)]
 (link: &quot;8&quot;)[(set: $combination3 to 8)(goto: &quot;Open Safe&quot;)]
-(link: &quot;9&quot;)[(set: $combination3 to 9)(goto: &quot;Open Safe&quot;)]</tw-passagedata><tw-passagedata pid="25" name="Open Safe" tags="" position="500,1200" size="100,100">{
+(link: &quot;9&quot;)[(set: $combination3 to 9)(goto: &quot;Open Safe&quot;)]</tw-passagedata><tw-passagedata pid="25" name="Open Safe" tags="Audio" position="500,1200" size="100,100">{
 (track: &#39;combination-lock&#39;, &#39;playwhenpossible&#39;)
 }
 
@@ -414,7 +415,7 @@ twine tutorial
 https://docs.google.com/document/d/1ut-_wy5DIBFVo46aPKKY7WTcvNuLfnYhU9wfWnCUvbE/edit#heading=h.4pxtbg23wcva
 
 riddles
-https://www.rd.com/list/easy-riddles/</tw-passagedata><tw-passagedata pid="29" name="Pry off tile" tags="" position="1000,1200" size="100,100">{
+https://www.rd.com/list/easy-riddles/</tw-passagedata><tw-passagedata pid="29" name="Pry off tile" tags="Audio" position="1000,1200" size="100,100">{
 (track: &#39;pry-tool&#39;, &#39;playwhenpossible&#39;)
 }
 
@@ -449,7 +450,9 @@ open-drawer: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/ma
 
 chest-slam: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/main/Audio/SFX/chest%20slam.mp3
 
-pry-tool: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/main/Audio/SFX/pry%20tool.mp3</tw-passagedata><tw-passagedata pid="33" name="Begin" tags="" position="600,400" size="100,100">(align:&quot;=&gt;&lt;=&quot;)+(box:&quot;X&quot;)[
+pry-tool: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/main/Audio/SFX/pry%20tool.mp3
+
+metal-fall: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/main/Audio/SFX/metal%20falling.mp3</tw-passagedata><tw-passagedata pid="33" name="Begin" tags="" position="600,400" size="100,100">(align:&quot;=&gt;&lt;=&quot;)+(box:&quot;X&quot;)[
 
 (text-colour:orange)[&#39;&#39;[[Start The Game |Starting Passage]]&#39;&#39;]
 ]</tw-passagedata></tw-storydata>
