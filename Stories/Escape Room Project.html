@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Escape Room Project.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Escape Room Project" startnode="1" creator="Twine" creator-version="2.8.1" format="Harlowe" format-version="3.3.8" ifid="142E6DF6-75F2-4BC5-824E-A7675E8BFA10" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/**
+<tw-storydata name="Escape Room Project" startnode="33" creator="Twine" creator-version="2.8.1" format="Harlowe" format-version="3.3.8" ifid="142E6DF6-75F2-4BC5-824E-A7675E8BFA10" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/**
  * Harlowe Audio Library (HAL), by Chapel, v2.3.0
  * for Harlowe 2.1.0 and higher
  * Released under the Unlicense, and dedicated to the public domain.
@@ -189,7 +189,6 @@ Back:
 ]]
 ---</tw-passagedata><tw-passagedata pid="11" name="Open Chest" tags="" position="1700,1000" size="100,100">{
 (track: &#39;open-chest&#39;, &#39;playwhenpossible&#39;)
-(track: &#39;lock-1&#39;, &#39;playwhenpossible&#39;)
 }
 
 **Small Chest**
@@ -407,7 +406,11 @@ twine tutorial
 https://docs.google.com/document/d/1ut-_wy5DIBFVo46aPKKY7WTcvNuLfnYhU9wfWnCUvbE/edit#heading=h.4pxtbg23wcva
 
 riddles
-https://www.rd.com/list/easy-riddles/</tw-passagedata><tw-passagedata pid="29" name="Pry off tile" tags="" position="1000,1200" size="100,100">**Remove tile from safe**
+https://www.rd.com/list/easy-riddles/</tw-passagedata><tw-passagedata pid="29" name="Pry off tile" tags="" position="1000,1200" size="100,100">{
+(track: &#39;pry-tool&#39;, &#39;playwhenpossible&#39;)
+}
+
+**Remove tile from safe**
 
 Below the tile is a message etched into the safe. It says:
 
@@ -438,7 +441,10 @@ open-chest: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/mai
 
 open-drawer: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/main/Audio/SFX/drawer.mp3
 
-pry-tool: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/main/Audio/SFX/pry%20tool.mp3</tw-passagedata></tw-storydata>
+pry-tool: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/main/Audio/SFX/pry%20tool.mp3</tw-passagedata><tw-passagedata pid="33" name="Begin" tags="" position="600,400" size="100,100">(align:&quot;=&gt;&lt;=&quot;)+(box:&quot;X&quot;)[
+
+(text-colour:orange)[&#39;&#39;[[Start The Game |Starting Passage]]&#39;&#39;]
+]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
