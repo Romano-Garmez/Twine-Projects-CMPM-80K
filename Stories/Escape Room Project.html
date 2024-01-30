@@ -131,7 +131,12 @@ Back:
 (if: $inventory  contains &quot;Black Light&quot;)[
 (link: &quot;Use Black Light&quot;)[There&#39;s another bit of writing on the paper revealed with the black light. It says &#39;&#39;&quot;_ 1 _&quot;&#39;&#39;.]
 ]
-</tw-passagedata><tw-passagedata pid="6" name="Open Drawer" tags="" position="1300,1000" size="100,100">**Drawer**
+</tw-passagedata><tw-passagedata pid="6" name="Open Drawer" tags="" position="1300,1000" size="100,100">{
+(track: &#39;metal-lock-1&#39;, &#39;playwhenpossible&#39;)
+(track: &#39;open-drawer&#39;, &#39;playwhenpossible&#39;)
+}
+
+**Drawer**
 {
 (if: $inventory does not contain &quot;Pry Tool&quot;)[
 (set: $inventory to it + (a: &quot;Pry Tool&quot;))
@@ -182,7 +187,12 @@ Back:
 (for: each _item, ...$inventory)[
 [- _item]
 ]]
----</tw-passagedata><tw-passagedata pid="11" name="Open Chest" tags="" position="1700,1000" size="100,100">**Small Chest**
+---</tw-passagedata><tw-passagedata pid="11" name="Open Chest" tags="" position="1700,1000" size="100,100">{
+(track: &#39;open-chest&#39;, &#39;playwhenpossible&#39;)
+(track: &#39;lock-1&#39;, &#39;playwhenpossible&#39;)
+}
+
+**Small Chest**
 
 The chest contains another handwritten message, this time a riddle. 
 
@@ -248,7 +258,11 @@ The metal label has a company&#39;s name that you&#39;ve never heard of before. 
 
 ---
 Back:
-[[Metal Safe]] </tw-passagedata><tw-passagedata pid="20" name="Combination" tags="" position="1000,1000" size="100,100">**Metal Safe Combination**
+[[Metal Safe]] </tw-passagedata><tw-passagedata pid="20" name="Combination" tags="" position="1000,1000" size="100,100">{
+(track: &#39;pry-tool&#39;, &#39;playwhenpossible&#39;)
+}
+
+**Metal Safe Combination**
 
 The combination is made up of three spinning discs, each one going from 0 to 10. Not the most secure safe of all time, but that&#39;s still well over a thousand combinations. Too many to try them all.
 
@@ -292,7 +306,11 @@ What do you dial in as the first number?
 (link: &quot;6&quot;)[(set: $combination1 to 6)(goto: &quot;Second Disc&quot;)]
 (link: &quot;7&quot;)[(set: $combination1 to 7)(goto: &quot;Second Disc&quot;)]
 (link: &quot;8&quot;)[(set: $combination1 to 8)(goto: &quot;Second Disc&quot;)]
-(link: &quot;9&quot;)[(set: $combination1 to 9)(goto: &quot;Second Disc&quot;)]</tw-passagedata><tw-passagedata pid="23" name="Second Disc" tags="" position="500,800" size="100,100">**Safe**
+(link: &quot;9&quot;)[(set: $combination1 to 9)(goto: &quot;Second Disc&quot;)]</tw-passagedata><tw-passagedata pid="23" name="Second Disc" tags="" position="500,800" size="100,100">{
+(track: &#39;combination-lock&#39;, &#39;playwhenpossible&#39;)
+}
+
+**Safe**
 
 What do you dial in as the second number?
 
@@ -305,7 +323,11 @@ What do you dial in as the second number?
 (link: &quot;6&quot;)[(set: $combination2 to 6)(goto: &quot;Third Disc&quot;)]
 (link: &quot;7&quot;)[(set: $combination2 to 7)(goto: &quot;Third Disc&quot;)]
 (link: &quot;8&quot;)[(set: $combination2 to 8)(goto: &quot;Third Disc&quot;)]
-(link: &quot;9&quot;)[(set: $combination2 to 9)(goto: &quot;Third Disc&quot;)]</tw-passagedata><tw-passagedata pid="24" name="Third Disc" tags="" position="500,1000" size="100,100">**Safe**
+(link: &quot;9&quot;)[(set: $combination2 to 9)(goto: &quot;Third Disc&quot;)]</tw-passagedata><tw-passagedata pid="24" name="Third Disc" tags="" position="500,1000" size="100,100">{
+(track: &#39;combination-lock&#39;, &#39;playwhenpossible&#39;)
+}
+
+**Safe**
 
 What do you dial in as the third number?
 
@@ -318,7 +340,11 @@ What do you dial in as the third number?
 (link: &quot;6&quot;)[(set: $combination3 to 6)(goto: &quot;Open Safe&quot;)]
 (link: &quot;7&quot;)[(set: $combination3 to 7)(goto: &quot;Open Safe&quot;)]
 (link: &quot;8&quot;)[(set: $combination3 to 8)(goto: &quot;Open Safe&quot;)]
-(link: &quot;9&quot;)[(set: $combination3 to 9)(goto: &quot;Open Safe&quot;)]</tw-passagedata><tw-passagedata pid="25" name="Open Safe" tags="" position="500,1200" size="100,100">**Safe**
+(link: &quot;9&quot;)[(set: $combination3 to 9)(goto: &quot;Open Safe&quot;)]</tw-passagedata><tw-passagedata pid="25" name="Open Safe" tags="" position="500,1200" size="100,100">{
+(track: &#39;combination-lock&#39;, &#39;playwhenpossible&#39;)
+}
+
+**Safe**
 
 (if: $combination1 is not 7 and $combination2 is not 1 and $combination3 is not 8)[
 The safe doesn&#39;t budge. Wrong combination I suppose.
@@ -400,7 +426,19 @@ The letter contains another handwritten message. It say:
 
 &quot;Impressive work getting here. I leave you a key to the room, but know that it doesn&#39;t end here. I&#39;ll be in touch.&quot;
 
-[[Exit the Room|Ending]]</tw-passagedata><tw-passagedata pid="32" name="hal.tracks" tags="Audio" position="200,100" size="100,100">music-hourglass: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/1743d356fdbf475331850c33b1c712ed475fa010/Audio/Music/Hourglass.mp3</tw-passagedata></tw-storydata>
+[[Exit the Room|Ending]]</tw-passagedata><tw-passagedata pid="32" name="hal.tracks" tags="Audio" position="200,100" size="100,100">music-hourglass: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/1743d356fdbf475331850c33b1c712ed475fa010/Audio/Music/Hourglass.mp3
+
+lock-1: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/main/Audio/SFX/Lock%201.mp3
+
+combination-lock: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/main/Audio/SFX/CombinationLock.mp3
+
+metal-lock-1: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/main/Audio/SFX/Metal%20Lock%201.mp3
+
+open-chest: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/main/Audio/SFX/OpeningChest.mp3
+
+open-drawer: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/main/Audio/SFX/drawer.mp3
+
+pry-tool: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/main/Audio/SFX/pry%20tool.mp3</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
