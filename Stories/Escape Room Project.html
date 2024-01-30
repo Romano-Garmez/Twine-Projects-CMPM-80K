@@ -229,12 +229,20 @@ You inspect the knight. Wonder where the rest of the chess game is.
 
 You inspect the coin. Abraham Lincoln stares back at you.
 
-[[Place Back in Chest|Correct Chest Item]]</tw-passagedata><tw-passagedata pid="17" name="Incorrect Chest Item" tags="" position="1600,1300" size="100,100">**Small Chest**
+[[Place Back in Chest|Correct Chest Item]]</tw-passagedata><tw-passagedata pid="17" name="Incorrect Chest Item" tags="" position="1600,1300" size="100,100">{
+(track: &#39;chest-slam&#39;, &#39;playwhenpossible&#39;)
+}
+
+**Small Chest**
 
 The chest slams shut and locks itself again. That must&#39;ve been the incorrect answer.
 
 ---
-[[Wooden Desk]] </tw-passagedata><tw-passagedata pid="18" name="Correct Chest Item" tags="" position="1800,1300" size="100,100">**Small Chest**
+[[Wooden Desk]] </tw-passagedata><tw-passagedata pid="18" name="Correct Chest Item" tags="" position="1800,1300" size="100,100">{
+(track: &#39;chest-slam&#39;, &#39;playwhenpossible&#39;)
+}
+
+**Small Chest**
 {
 (if: $inventory does not contain &quot;Screwdriver&quot;)[
 (set: $inventory to it + (a: &quot;Screwdriver&quot;))
@@ -431,8 +439,6 @@ The letter contains another handwritten message. It say:
 
 [[Exit the Room|Ending]]</tw-passagedata><tw-passagedata pid="32" name="hal.tracks" tags="Audio" position="200,100" size="100,100">music-hourglass: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/1743d356fdbf475331850c33b1c712ed475fa010/Audio/Music/Hourglass.mp3
 
-lock-1: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/main/Audio/SFX/Lock%201.mp3
-
 combination-lock: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/main/Audio/SFX/CombinationLock.mp3
 
 metal-lock-1: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/main/Audio/SFX/Metal%20Lock%201.mp3
@@ -440,6 +446,8 @@ metal-lock-1: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/m
 open-chest: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/main/Audio/SFX/OpeningChest.mp3
 
 open-drawer: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/main/Audio/SFX/drawer.mp3
+
+chest-slam: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/main/Audio/SFX/chest%20slam.mp3
 
 pry-tool: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/main/Audio/SFX/pry%20tool.mp3</tw-passagedata><tw-passagedata pid="33" name="Begin" tags="" position="600,400" size="100,100">(align:&quot;=&gt;&lt;=&quot;)+(box:&quot;X&quot;)[
 
