@@ -24,12 +24,13 @@
 /** End of HAL code */</script><tw-tag name="Ending" color="red"></tw-tag><tw-tag name="Start" color="green"></tw-tag><tw-tag name="Inventory" color="orange"></tw-tag><tw-tag name="Safe" color="blue"></tw-tag><tw-tag name="Main-Area" color="purple"></tw-tag><tw-tag name="Audio" color="yellow"></tw-tag><tw-passagedata pid="1" name="Starting Passage" tags="Start" position="800,300" size="100,100">{
 (set: $inventory to (array:))
 
-(track: &#39;music-hourglass&#39;, &#39;playwhenpossible&#39;, &#39;loop&#39;, true)
+(track: &#39;music-hourglass&#39;, &#39;loop&#39;, true)
+(track: &#39;music-hourglass&#39;, &#39;playwhenpossible&#39;)
 (track: &#39;music-hourglass&#39;, &#39;volume&#39;, 0.5)
 }
 
 
-You wake up in a dimly lit room. The walls are entirely without decoration, and there are no windows. There is a door, but it&#39;s locked. The keyhole is visible, but you check your pockets and you don&#39;t have a key.
+You wake up in a dimly lit room. The walls are entirely without decoration save for one painting, and there are no windows. There is a door, but it&#39;s locked. The keyhole is visible, but you check your pockets and you don&#39;t have a key.
 
 In the middle of the room, there is a large complicated-looking metal safe. It&#39;s complete with a combination lock, tile pattern on top, and a couple of metal panels on the sides.
 
@@ -37,6 +38,7 @@ By one of the walls, there&#39;s a wooden desk with a drawer and a note on top.
 
 ---
 Search:
+[[Painting]] 
 [[Metal Safe]]
 [[Wooden Desk]]
 
@@ -65,8 +67,8 @@ Inspect:
 ]
 }
 (if: $inventory  contains &quot;Black Light&quot;)[
-(link: &quot;Use Black Light&quot;)[One of the tiles on top has a bunch of fingerprints on it.
-If you had a pry tool, maybe you could lift it up
+(link: &quot;Use Black Light&quot;)[(text-colour:yellow)[One of the tiles on top has a bunch of fingerprints on it.
+If you had a pry tool, maybe you could lift it up]
 (if: $inventory contains &quot;Pry Tool&quot;)[
 [[Pry off tile]]
 ]
@@ -90,6 +92,9 @@ Inspect:
 [[Envelope]]
 [[Small Chest]]
 [[Drawer]]
+(if:$paintingmessageread is true)[
+[[Check Under Desk]]
+]
 
 ---
 Back:
@@ -134,7 +139,7 @@ Back:
 [[Wooden Desk]] 
 
 (if: $inventory  contains &quot;Black Light&quot;)[
-(link: &quot;Use Black Light&quot;)[There&#39;s another bit of writing on the paper revealed with the black light. It says &#39;&#39;&quot;_ 1 _&quot;&#39;&#39;.]
+(link: &quot;Use Black Light&quot;)[(text-colour:yellow)[There&#39;s another bit of writing on the paper revealed with the black light. It says &#39;&#39;&quot;_ 1 _&quot;&#39;&#39;].]
 ]
 </tw-passagedata><tw-passagedata pid="6" name="Open Drawer" tags="Audio" position="1300,1100" size="100,100">{
 (track: &#39;metal-lock-1&#39;, &#39;playwhenpossible&#39;)
@@ -143,18 +148,14 @@ Back:
 
 **Drawer**
 {
-(if: $inventory does not contain &quot;Pry Tool&quot;)[
-(set: $inventory to it + (a: &quot;Pry Tool&quot;))
-(text-colour:red)[You&#39;ve acquired an item!]
-]
 (if: $inventory does not contain &quot;Black Light&quot;)[
 (set: $inventory to it + (a: &quot;Black Light&quot;))
 (text-colour:red)[You&#39;ve acquired an item!]
 ]
 }
 
-Inside the drawer is a small collection of items.
-There&#39;s a small metal blade that could be used to pry something open. There&#39;s also a handheld black light. It might be able to be used to reveal hidden messages somewhere.
+You pull the drawer open. It&#39;s old and creaky.
+Inside the drawer is a handheld black light. It might be able to be used to reveal hidden messages somewhere.
 
 ---
 Back:
@@ -162,12 +163,15 @@ Back:
 
 There is a door, but it&#39;s locked. The keyhole is visible, but you check your pockets and you don&#39;t have a key.
 
+There is a painting on one wall, but the rest of the walls are entirely blank.
+
 In the middle of the room, there is a small table with a complicated-looking metal safe on top.
 
 By one of the walls, there&#39;s a wooden desk with a drawer and a note on top.
 
 ---
 Search:
+[[Painting]] 
 [[Metal Safe]]
 [[Wooden Desk]]
 
@@ -369,17 +373,17 @@ Back:
 
 **Safe**
 
-(if: $combination1 is not 7 and $combination2 is not 1 and $combination3 is not 8)[
+(if: $combination1 is  7 and $combination2 is  1 and $combination3 is  8)[
+The safe unlocked!
+
+[[Open Safe Door]] 
+]
+(else:)[
 The safe doesn&#39;t budge. Wrong combination I suppose.
 
 ---
 Back:
 [[Metal Safe]] 
-]
-(else:)[
-The safe unlocked!
-
-[[Open Safe Door]] 
 ]
 </tw-passagedata><tw-passagedata pid="26" name="Combination Lock Cover" tags="" position="1000,800" size="100,200">**Cover on Metal Safe**
 
@@ -413,7 +417,7 @@ Pry Tool: A small metal piece with a flat edge that can be used to pry something
 ]
 
 (if: $inventory contains &quot;Black Light&quot;)[
-Black Light: A handheld light, useful for uncovering hidden messages and seeing fingerprints. It might be worth going back to written messages you&#39;ve read before to find extra writing.
+Black Light: A handheld light, useful for uncovering hidden messages and seeing fingerprints. It might be worth going back to written messages and other objects you&#39;ve read before to find extra writing.
 &lt;br&gt;
 ]
 
@@ -484,7 +488,36 @@ envelope: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/main/
 safe-door: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/main/Audio/SFX/safedoor.mp3</tw-passagedata><tw-passagedata pid="33" name="Begin" tags="" position="600,300" size="100,100">(align:&quot;=&gt;&lt;=&quot;)+(box:&quot;X&quot;)[
 
 (text-colour:orange)[&#39;&#39;[[Start The Game |Starting Passage]]&#39;&#39;]
-]</tw-passagedata></tw-storydata>
+]</tw-passagedata><tw-passagedata pid="34" name="Painting" tags="" position="1500,100" size="200,200">**Painting**
+
+You walk over to the painting on the wall. It appears to be entirely abstract. Feels like an unnecessary detail for the room, I wonder if there&#39;s something I&#39;m not seeing? I may have to come back later.
+
+(if: $inventory  contains &quot;Black Light&quot;)[
+(link: &quot;Use Black Light&quot;)[(text-colour:yellow)[There&#39;s a drawing on the painting. It shows a wooden desk with a chest on top, and an arrow pointing to the underside of the desk.
+(set: $paintingmessageread to true])
+]
+]
+---
+Back:
+[[Center of the Room]] 
+(display:&quot;Inventory&quot;)
+
+
+</tw-passagedata><tw-passagedata pid="35" name="Check Under Desk" tags="Audio" position="1700,500" size="100,100">{
+(if: $inventory does not contain &quot;Pry Tool&quot;)[
+(set: $inventory to it + (a: &quot;Pry Tool&quot;))
+(text-colour:red)[You&#39;ve acquired an item!]
+]
+(track: &#39;metal-fall&#39;, &#39;playwhenpossible&#39;)
+}
+
+**Under the Desk**
+
+You crouch down and go under the desk. On the underside of the desk, there&#39;s a pry tool taped. You remove it and add it to your collection of tools. This will probably be helpful later.
+
+---
+Back:
+[[Wooden Desk]] </tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
