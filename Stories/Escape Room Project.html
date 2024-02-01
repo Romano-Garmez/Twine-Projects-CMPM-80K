@@ -488,13 +488,14 @@ envelope: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/main/
 safe-door: https://github.com/Romano-Garmez/Twine-Projects-for-CMPM-80K/raw/main/Audio/SFX/safedoor.mp3</tw-passagedata><tw-passagedata pid="33" name="Begin" tags="" position="600,300" size="100,100">(align:&quot;=&gt;&lt;=&quot;)+(box:&quot;X&quot;)[
 
 (text-colour:orange)[&#39;&#39;[[Start The Game |Starting Passage]]&#39;&#39;]
-]</tw-passagedata><tw-passagedata pid="34" name="Painting" tags="" position="1500,100" size="200,200">**Painting**
+]</tw-passagedata><tw-passagedata pid="34" name="Painting" tags="" position="1600,100" size="200,200">**Painting**
 
 You walk over to the painting on the wall. It appears to be entirely abstract. Feels like an unnecessary detail for the room, I wonder if there&#39;s something I&#39;m not seeing? I may have to come back later.
 
 (if: $inventory  contains &quot;Black Light&quot;)[
-(link: &quot;Use Black Light&quot;)[(text-colour:yellow)[There&#39;s a drawing on the painting. It shows a wooden desk with a chest on top, and an arrow pointing to the underside of the desk.
-(set: $paintingmessageread to true])
+(link: &quot;Use Black Light&quot;)[(text-colour:yellow)[There&#39;s a drawing on the painting. It shows a wooden desk with a chest on top, and an arrow pointing to the underside of the desk.]
+
+(set: $paintingmessageread to true)
 ]
 ]
 ---
